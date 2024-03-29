@@ -15,10 +15,6 @@ app.use(bodyParser.json())
 initDB()
 app.use('/api', router)
 
-app.get('/', (req: Request, res: Response) => {
-  res.send('Welcome to Express & TypeScript Server')
-})
-
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`)
 })

@@ -2,21 +2,21 @@ import {Schema, model} from 'mongoose'
 import {generateSchema} from '../utils/db/mongodb'
 import {IBaseSchema} from '../interfaces/schema'
 
-interface ICourse extends IBaseSchema {
+interface IUser extends IBaseSchema {
   _id: Schema.Types.ObjectId
-  title: string
-  description: string
+  username: string
+  userWalletAddress: string
 }
 
-const courseSchema = generateSchema<ICourse>({
-  title: {
+const userSchema = generateSchema<IUser>({
+  username: {
     type: String,
     required: true,
   },
-  description: {
+  userWalletAddress: {
     type: String,
     required: true,
   },
 })
 
-export default model('Course', courseSchema)
+export default model('Course', userSchema)

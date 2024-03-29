@@ -1,9 +1,9 @@
-import express from 'express'
-import CourseController from '../controllers/course.controller'
+import authController from '../controllers/auth.controller'
+import {CustomRoute} from '../utils/routes/custom-router'
 
-const router = express.Router()
-router.get('/courses/:id', CourseController.coursesById)
-router.post('/courses', CourseController.createCourse)
-router.put('/courses/:id', CourseController.updateCourse)
+const router = new CustomRoute()
 
-export default router
+router.GET('/nonce', authController.nonce)
+router.POST('/login', authController.login)
+
+export default router.getRouter()
